@@ -29,10 +29,19 @@
     "im",
     "chat"
   ],
-  "peerDependencies": {
-    "@satorijs/satori": "^3.6.1"
+  "scripts": {
+    "build:js": "esbuild src/index.ts --outfile=lib/index.js --bundle --sourcemap --sources-content=false --platform=node --external:@satorijs/satori --external:./node_modules/* --target=es2022",
+    "build:tsc": "tsc",
+    "build": "yarn run build:js && yarn run build:tsc"
   },
   "dependencies": {
+    "@satorijs/satori": "^3.6.0",
+    "@satorijs/server-temp": "^1.2.1",
     "qface": "^1.4.1"
+  },
+  "devDependencies": {
+    "@types/node": "^20.11.24",
+    "esbuild": "^0.20.1",
+    "typescript": "^5.3.3"
   }
 }
