@@ -5,13 +5,26 @@ import { QQBot } from './bot'
 export const decodeGuild = (guild: QQ.Guild): Universal.Guild => ({
   id: guild.id,
   name: guild.name,
+  avatar: guild.icon
 })
 
 export const decodeChannel = (channel: QQ.Channel): Universal.Channel => ({
   id: channel.id,
   name: channel.name,
-  // TODO support more channel types
-  type: Universal.Channel.Type.TEXT,
+  type: (() => {
+    switch (channel.type) {
+      case QQ.ChannelType.TEXT:
+        return Universal.Channel.Type.TEXT
+      case QQ.ChannelType.VOICE:
+        return Universal.Channel.Type.VOICE
+      case QQ.ChannelType.GROUP:
+        return Universal.Channel.Type.CATEGORY
+      case QQ.ChannelType.LIVE:
+        return 10005 as Universal.Channel.Type
+      default:
+        return -1 as Universal.Channel.Type // not supported
+    }
+  })(),
 })
 
 export const decodeUser = (user: QQ.User): Universal.User => ({
