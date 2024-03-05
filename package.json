@@ -32,7 +32,8 @@
   "scripts": {
     "build:js": "esbuild src/index.ts --outfile=lib/index.js --bundle --sourcemap --sources-content=false --platform=node --external:@satorijs/satori --external:./node_modules/* --target=es2022",
     "build:tsc": "tsc",
-    "build": "yarn run build:js && yarn run build:tsc"
+    "build": "yarn run build:js && yarn run build:tsc",
+    "version": "npm version prerelease"
   },
   "dependencies": {
     "@satorijs/satori": "^3.6.3",
