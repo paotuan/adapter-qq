@@ -2,7 +2,7 @@ import * as QQ from './types'
 import { Context, Dict, h, MessageEncoder, Quester } from '@satorijs/satori'
 import { QQBot } from './bot'
 import { QQGuildBot } from './bot/guild'
-import { Entry } from '@satorijs/server-temp'
+// import { Entry } from '@satorijs/server-temp'
 
 export const escapeMarkdown = (val: string) =>
   val
@@ -301,15 +301,15 @@ export class QQMessageEncoder<C extends Context = Context> extends MessageEncode
   }
 
   async sendFile(type: string, attrs: Dict) {
-    let url = attrs.src || attrs.url, entry: Entry | undefined
-    if (await this.bot.ctx.http.isLocal(url)) {
-      const temp = this.bot.ctx.get('server.temp')
-      if (!temp) {
-        return this.bot.logger.warn('missing temporary file service, cannot send assets with private url')
-      }
-      entry = await temp.create(url)
-      url = entry.url
-    }
+    let url = attrs.src || attrs.url // , entry: Entry | undefined
+    // if (await this.bot.ctx.http.isLocal(url)) {
+    //   const temp = this.bot.ctx.get('server.temp')
+    //   if (!temp) {
+    //     return this.bot.logger.warn('missing temporary file service, cannot send assets with private url')
+    //   }
+    //   entry = await temp.create(url)
+    //   url = entry.url
+    // }
     await this.flush()
     let file_type = 0
     if (type === 'img' || type === 'image') file_type = 1
@@ -337,7 +337,7 @@ export class QQMessageEncoder<C extends Context = Context> extends MessageEncode
         await this.sendFile(type, attrs)
       }
     }
-    entry?.dispose?.()
+    // entry?.dispose?.()
     this.retry = false
     return res
   }

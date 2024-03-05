@@ -175,18 +175,13 @@
     "@satorijs/element" "^3.1.4"
     cosmokit "^1.5.2"
 
-"@satorijs/satori@^3.6.0":
+"@satorijs/satori@^3.6.3":
   version "3.6.3"
   resolved "https://registry.npmmirror.com/@satorijs/satori/-/satori-3.6.3.tgz#4e717c5ea2888b15d2619635d248ab4ee959e5c1"
   integrity sha512-lrF/1WVZop4wHl3lNa1LaBdh8PmaXPOEkf0KmmdDAQSClsbS4M8oBpH4/9OkvxVWzqOD9gnZiqf1GtjVuePWwA==
   dependencies:
     "@satorijs/core" "3.6.3"
     cosmokit "^1.5.2"
-
-"@satorijs/server-temp@^1.2.1":
-  version "1.2.1"
-  resolved "https://registry.npmmirror.com/@satorijs/server-temp/-/server-temp-1.2.1.tgz#941848ff28a0dfaf7435e089a059e32b93f8b3bd"
-  integrity sha512-TtT+LukHpsrJP7+pKrbv/GYOgggRy1JQQCOqQwR7T9pLaaNh5tLjes9khKrderOpvAXQlGjUeVTjeiZch0G+5A==
 
 "@tokenizer/token@^0.3.0":
   version "0.3.0"
