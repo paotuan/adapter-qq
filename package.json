@@ -35,7 +35,7 @@
     "build": "yarn run build:js && yarn run build:tsc"
   },
   "dependencies": {
-    "@satorijs/satori": "^3.6.0",
+    "@satorijs/satori": "^3.6.3",
     "@satorijs/server-temp": "^1.2.1",
     "qface": "^1.4.1"
   },
