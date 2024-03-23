@@ -99,8 +99,8 @@ export async function decodeMessage(
 
   if (!payload) return message
   payload.timestamp = new Date(data.timestamp).valueOf()
-  payload.user = decodeUser(data.author)
-  payload.member = decodeGuildMember(data.member)
+  payload.user = data.author ? decodeUser(data.author) : undefined
+  payload.member = data.member ? decodeGuildMember(data.member) : undefined
   if (data.direct_message) {
     // real guild id, dm's fake guild id
     payload.guild = { id: `${data.src_guild_id}_${data.guild_id}` }
